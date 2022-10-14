@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import User
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def signup(request):
@@ -15,3 +16,21 @@ def signup(request):
             return HttpResponse('회원가입 완료')
         else:
             return HttpResponse('비밀번호 확인 틀렸습니다.')
+
+def login_view(request):
+    if request.method == 'GET':
+        return render(request, 'login.html')
+    elif request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        # authenticate가 있는지 없는지 확인해 주는 역활
+        user = authenticate(request, username=username, password=password)
+        if user:
+            # login이 세션을 만들어주는 역활
+            login(request, user)
+            return redirect('users:user')
+        else:
+            return redirect('users:login')
+
+def user(request):
+    return render(request, 'user.html')
