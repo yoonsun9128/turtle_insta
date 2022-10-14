@@ -9,5 +9,8 @@
 <body>
     <h1> {{user.username}}님이 로그인 하셨습니다.</h1>
     <h2> {{user.date_joined}} 가입 날짜</h2>
+    <form method="GET" action="{% url 'users:login' %}">
+        <button>logout</button>
+    </form>
 </body>
 </html>

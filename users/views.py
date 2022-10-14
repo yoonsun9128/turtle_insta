@@ -13,7 +13,7 @@ def signup(request):
         passwordcheck = request.POST.get('passwordcheck')
         if password == passwordcheck:
             User.objects.create_user(username=username, password=password)
-            return HttpResponse('회원가입 완료')
+            return redirect('users:login')
         else:
             return HttpResponse('비밀번호 확인 틀렸습니다.')
 
