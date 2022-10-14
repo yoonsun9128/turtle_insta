@@ -33,4 +33,5 @@ def login_view(request):
             return render(request,'login.html', {'error':'username or password is incorrect'})
 
 def user(request):
+    print(request.user)
     return render(request, 'user.html')
