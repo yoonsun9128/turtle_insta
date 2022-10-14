@@ -35,3 +35,11 @@ def login_view(request):
 def user(request):
     print(request.user)
     return render(request, 'user.html')
+
+def profile(request, username):
+    user = User.objects.get(username=username)
+    context = {
+        "user": user
+    }
+    return render(request, 'profile.html',context)
+    
