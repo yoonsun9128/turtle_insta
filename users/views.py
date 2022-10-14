@@ -30,7 +30,7 @@ def login_view(request):
             login(request, user)
             return redirect('users:user')
         else:
-            return redirect('users:login')
+            return render(request,'login.html', {'error':'username or password is incorrect'})
 
 def user(request):
     return render(request, 'user.html')
