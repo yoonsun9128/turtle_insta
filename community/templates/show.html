@@ -10,7 +10,13 @@
 </head>
 
 <body>
-    <div>게시물 페이지</div>
-    <div>{{ article }}</div>
+    <h1>게시물 페이지</h1>
+    {% for article in all_article %}
+    <div>{{ article.title }}</div>
+    <div>{{ article.content }}</div>
+    <div>{{ article.create_at }}</div>
+    <div>{{ article.user }}</div>
+    <br>
+    {% endfor %}
 </body>
 </html>
