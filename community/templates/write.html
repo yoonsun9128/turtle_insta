@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Write</title>
+</head>
+<body>
+    <h1>게시물 작성 페이지</h1>
+    <form action="{% url 'community:post_view' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_subject"> 제목 </label>
+            <input type="text" class="form-control" name="title">
+        </div>
+
+        <div class="form-group">
+            <lable for="id_message">내용</lable>
+            <textarea class="form-control" name="content" rows="5"></textarea>
+        </div>
+        <input type="submit" />
+    </form>
+</body>
+</html>
