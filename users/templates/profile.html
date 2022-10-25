@@ -14,7 +14,11 @@
 
     <h1>{{ user }}님의 페이지</h1>
     <p> 마지막 로그인은 {{ user.last_login }}</p>
-   
-    
+
+    <form method="GET" action="{% url 'community:post_view' %}">
+        <button>게시물 페이지로 이동</button>
+    </form>
+
+
 </body>
 </html>

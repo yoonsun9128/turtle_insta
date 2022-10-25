@@ -7,7 +7,7 @@ from users.models import User
 class Articles(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField()
-    create_at = models.DateTimeField(auto_now_add=True)
+    create_at = models.DateTimeField(auto_now_add=True) #자동생성
     edite_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
