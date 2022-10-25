@@ -13,16 +13,18 @@
 
 <body>
     <h1>게시물 페이지</h1>
+    <br>
     <form method="GET" action="{% url 'community:post_write' %}">
         <button>게시물 작성하기</button>
     </form>
-
-
+    <br>
     {% for article in all_article %}
-    <div>{{ article.title }}</div>
-    <div>{{ article.content }}</div>
-    <div>{{ article.create_at }}</div>
-    <div>{{ article.user }}</div>
+    <div>
+        <a href="{% url 'community:detail' article.id %}">
+            <h3>{{ article.title }}</h3>
+        </a>
+    </div>
+
     <br>
     {% endfor %}
 </body>

@@ -9,8 +9,12 @@
 <body>
     <h1> {{user.username}}님이 로그인 하셨습니다.</h1>
     <h2> {{user.date_joined}} 가입 날짜</h2>
+    <form method="GET" action="{% url 'community:post_view' %}">
+        <button>게시물 페이지로 이동</button>
+    </form>
     <form method="GET" action="{% url 'users:login' %}">
         <button>logout</button>
     </form>
+
 </body>
 </html>

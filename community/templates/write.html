@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>게시물 작성 페이지</h1>
-    <form action="{% url 'community:post_view' %}" method="POST">
+    <form action="{% url 'community:post_write' %}" method="POST">
         {% csrf_token %}
         <div class="form-group">
             <label for="id_subject"> 제목 </label>
